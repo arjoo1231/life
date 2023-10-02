@@ -18,21 +18,6 @@ This Django project is a straightforward and stylish platform for personal blogs
 
 
 
-**Usage:**
-
-
-
-1. Copy this repository to your personal computer.
-
-2. Install any prerequisites that are required.
-
-3. Type 'python manage.py runserver' to launch the local development server.
-
-
-
-
-
-This Django blog project is open to exploration, use, and modification to meet your requirements. Enjoy easily setting up and maintaining your personal blog!
 
 
 
