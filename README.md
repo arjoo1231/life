@@ -1,4 +1,4 @@
-# Title: "My Life Reflections"
+# "My Life Reflections"
 
 In the course of my life, I've come to realize that people often stay true to their words. This has taught me the value of honesty and authenticity.
 
