@@ -28,7 +28,7 @@ This Django project is a straightforward and stylish platform for personal blogs
 
 3. Type 'python manage.py runserver' to launch the local development server.
 
-4. To access the blog, go to 'http://localhost:8000/' in your web browser.
+
 
 
 
