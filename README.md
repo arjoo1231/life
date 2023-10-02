@@ -7,9 +7,6 @@ My Django Blogging Project - My_life
 This Django project is a straightforward and stylish platform for personal blogs. It satisfies the following criteria:
 
 
-
-- Built with snake_case naming conventions and Django.
-
 - Stores data in the default SQLite database (db.sqlite3).
 
 - Includes a test that ensures a 200 HTTP response status code and an index view at the root URL ("/").
