@@ -22,8 +22,23 @@
   </nav>
 
   <main id="main-content">
-    {% block main %}
-    {% endblock %}
+    <div>
+      {% block main %}
+      {% endblock %}
+    </div>
+    <aside id="sidebar">
+      <section id="top_10_topics">
+        <h3>Top Topics</h3>
+        <ul>
+          {% for data in top_10_topics %}
+              <li>{{ data.topic.name }} ({{ data.post_count }} posts)</li>
+          {% endfor %}
+        </ul>
+      
+      </section>
+      
+
+    </aside>
    </main>
 
    <footer id="site-footer">

@@ -59,9 +59,11 @@ html {
   
   #main-content {
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: auto 200px;
+    gap: 20px; 
   }
-  
+
   #site-footer {
     font-size: 0.9rem;
   }
