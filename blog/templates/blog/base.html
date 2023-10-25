@@ -1,0 +1,32 @@
+{% load static %} <link rel="stylesheet" href="{% static "blog/base.css" %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Personal Learning Journey  – {% block page_title %}Arjoo's Life{% endblock %}</title>
+</head>
+
+<body>
+  <header id="site-header">
+     <h1>My life Experiences</h1>
+     <p>Welcome to the home page of my Life Experiences Blog!</p>
+  </header>
+
+  <nav id="top-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Posts</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    {% block main %}
+    {% endblock %}
+   </main>
+
+   <footer id="site-footer">
+    Copyright &copy;{% now 'Y' %}
+  </footer>
+</html>
