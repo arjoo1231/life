@@ -18,7 +18,7 @@ def home(request):
 
     
     for topic in topics:
-      post_count = topic.post_set.count() 
+      post_count = topic.posts.filter(status=models.Post.PUBLISHED).count() 
       topic_data.append({'topic': topic, 'post_count': post_count})
 
     sorted_data = sorted(topic_data, key=lambda x: x['post_count'], reverse=True)
@@ -39,7 +39,8 @@ def home(request):
 class TopicListView(ListView):
     model = models.Topic
     template_name = 'blog/topic_list.html'
-    context_object_name = 'topic_list'
+    context_object_name = 'topics'
+    ordering = ['name']
 
     
     def get_queryset(self):
@@ -58,11 +59,8 @@ class TopicDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        topic = self.get_object()
-        related_posts = Post.objects.filter(topic=topic, status=Post.PUBLISHED).order_by('-published')
-        context['related_posts'] = related_posts
+        context['posts'] = self.object.posts.filter(is_published=True).order_by('-published_date')
         return context
-    
 
 class AboutView(View):
     def get(self, request):
