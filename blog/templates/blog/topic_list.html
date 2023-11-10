@@ -1,0 +1,12 @@
+
+
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>Topics</h1>
+  <ul>
+    {% for topic in topics %}
+    <p><a href="{{ post.get_absolute_url }}">Read more &rarr; </a></p>
+    {% endfor %}
+  </ul>
+{% endblock %}

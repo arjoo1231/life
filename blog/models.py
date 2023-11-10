@@ -2,6 +2,12 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.urls import reverse
+
+
+class PostManager(models.Manager):
+    def published(self):
+        return self.filter(status='published')
 
 class Topic(models.Model):
     name = models.CharField(max_length=255, unique=True) 
@@ -10,9 +16,25 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        if self.published:
+            kwargs = {
+                'year': self.published.year,
+                'month': self.published.month,
+                'day': self.published.day,
+                'slug': self.slug
+            }
+        else:
+            kwargs = {'pk': self.pk}
 
+        return reverse('topic-detail', kwargs=kwargs)
+    
 
 class Post(models.Model):
+
+    objects = PostManager()
+
 
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -50,6 +72,9 @@ class Post(models.Model):
     )   
     topics = models.ManyToManyField(Topic, blank=True)
 
+    def get_authors(self):
+        return self.author
+
     class Meta:
         ordering = ['-created']
 
@@ -67,7 +92,7 @@ class Comment(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'this comment is doi=ne by {self.name} on "{self.post.title}"'
+        return f'this comment is done by {self.name} on "{self.post.title}"'
 
     class Meta:
         ordering = ['-created']

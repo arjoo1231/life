@@ -1,16 +1,13 @@
 {% extends "blog/base.html" %}
 
 {% block main %}
-
 <section class="latest-article-preview">
-
-{% for post in latest_posts %}
-<article>
-  <h2>{{ post.title }}</h2>
-  <em>{{ post.published|timesince }} ago</em>
-  {{ post.content|linebreaks }}
-</article>
-{% endfor %}
-
+  {% for post in latest_posts %}
+    <article>
+      <h2>{{ post.title }}</h2>
+      <em>{{ post.published|timesince }} ago</em>
+      {{ post.content|linebreaks }}
+    </article>
+  {% endfor %} {# Remove the space here #}
 </section>
 {% endblock %}

@@ -18,8 +18,15 @@ from django.contrib import admin
 from django.urls import include, path
 from . import views
 from blog import views
+from blog.views import TopicListView
+
+from blog.views import TopicDetailView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('about/', views.AboutView.as_view(), name='about'),
+     path('topics/', TopicListView.as_view(), name='topic-list'),
+    path('topics/<slug:slug>/', TopicDetailView.as_view(), name='topic-detail'),
 ]

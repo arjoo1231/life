@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>{{ topic.name }}</h1>
+  <h2>Related Posts</h2>
+  <ul>
+    {% for post in related_posts %}
+      <li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.published_date|timesince }} ago</p>
+        {{ post.content|linebreaks }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

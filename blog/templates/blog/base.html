@@ -1,9 +1,10 @@
-{% load static %} <link rel="stylesheet" href="{% static "blog/base.css" %}">
+{% load static %}
+<link rel="stylesheet" href="{% static "blog/base.css" %}">
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Personal Learning Journey  – {% block page_title %}Arjoo's Life{% endblock %}</title>
+  <title>My Personal Learning Journey – {% block page_title %}Arjoo's Life{% endblock %}</title>
 </head>
 
 <body>
@@ -14,9 +15,10 @@
 
   <nav id="top-nav">
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="#">Posts</a></li>
+      <li><a href="{% url 'topic-list' %}">Topics</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
@@ -34,14 +36,12 @@
               <li>{{ data.topic.name }} ({{ data.post_count }} posts)</li>
           {% endfor %}
         </ul>
-      
       </section>
-      
-
     </aside>
-   </main>
+  </main>
 
-   <footer id="site-footer">
+  <footer id="site-footer">
     Copyright &copy;{% now 'Y' %}
   </footer>
+</body>
 </html>
